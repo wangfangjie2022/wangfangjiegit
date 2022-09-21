@@ -1,0 +1,72 @@
+T1028 282:161.085   SEGGER J-Link V6.56 Log File
+T1028 282:161.137   DLL Compiled: Nov 22 2019 17:07:10
+T1028 282:161.144   Logging started @ 2022-08-31 06:43
+T1028 282:161.152 JLINK_SetWarnOutHandler(...)
+T1028 282:161.158 - 0.008ms
+T1028 282:161.164 JLINK_OpenEx(...)
+T1028 282:162.504   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T1028 282:173.579   Hardware: V9.50
+T1028 282:173.613   S/N: 59525592
+T1028 282:173.621   OEM: SEGGER
+T1028 282:173.628   Feature(s): JFlash, GDB, RDI, FlashBP, FlashDL
+T1028 282:174.945   TELNET listener socket opened on port 19021
+T1028 282:205.906   Device "STM32H743II" selected.
+T1028 282:206.491   WEBSRV Starting webserver
+T1028 282:206.659   WEBSRV Webserver running on local port 19080
+T1028 282:206.672 - 45.510ms returns "O.K."
+T1028 282:206.697 JLINK_GetEmuCaps()
+T1028 282:206.704 - 0.009ms returns 0xB9FF7BBF
+T1028 282:206.713 JLINK_TIF_GetAvailable(...)
+T1028 282:206.947 - 0.246ms
+T1028 282:206.969 JLINK_SetErrorOutHandler(...)
+T1028 282:206.975 - 0.009ms
+T1028 282:207.246 JLINK_ExecCommand("ProjectFile = "E:\研发资料\03 移动基站\BaseStation_MCU-MobileBaseStation\BaseStation_application\MDK-ARM\JLinkSettings.ini"", ...). 
+T1028 282:212.595   Device "STM32H743II" selected.
+T1028 282:212.816 - 5.577ms returns 0x00
+T1028 282:212.832 JLINK_ExecCommand("Device = STM32H743IIKx", ...). 
+T1028 282:218.144   Device "STM32H743II" selected.
+T1028 282:218.619 - 5.793ms returns 0x00
+T1028 282:218.652 JLINK_ExecCommand("DisableConnectionTimeout", ...). 
+T1028 282:218.662 - 0.005ms returns 0x01
+T1028 282:218.687 JLINK_GetHardwareVersion()
+T1028 282:218.693 - 0.009ms returns 0x17318
+T1028 282:218.700 JLINK_GetDLLVersion()  returns 65600
+T1028 282:218.708 JLINK_GetFirmwareString(...)
+T1028 282:218.714 - 0.007ms
+T1028 282:218.722 JLINK_GetDLLVersion()  returns 65600
+T1028 282:218.728 JLINK_GetCompileDateTime()
+T1028 282:218.733 - 0.007ms
+T1028 282:218.745 JLINK_GetFirmwareString(...)
+T1028 282:218.750 - 0.008ms
+T1028 282:218.757 JLINK_GetHardwareVersion()
+T1028 282:218.762 - 0.007ms returns 0x17318
+T1028 282:218.773 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T1028 282:219.519 - 0.772ms returns 0x00
+T1028 282:219.572 JLINK_SetSpeed(5000)
+T1028 282:219.702 - 0.135ms
+T1028 282:219.980 JLINK_GetId()
+T1028 282:846.942   STM32 (connect): Can not attach to CPU. Trying connect under reset.
+T1028 283:004.367   
+  ***** Error: 
+T1028 283:004.408   STM32: Connecting to CPU via connect under reset failed.
+T1028 283:232.864   STM32 (connect): Can not attach to CPU. Trying connect under reset.
+T1028 283:390.116   
+  ***** Error: 
+T1028 283:390.264   STM32: Connecting to CPU via connect under reset failed.
+T1028 283:440.726 - 1220.795ms   returns 0x00000000
+T1028 283:440.812 JLINK_GetId()
+T1028 283:547.341   STM32 (connect): Can not attach to CPU. Trying connect under reset.
+T1028 283:704.832   
+  ***** Error: 
+T1028 283:704.934   STM32: Connecting to CPU via connect under reset failed.
+T1028 283:936.320   STM32 (connect): Can not attach to CPU. Trying connect under reset.
+T1028 284:092.710   
+  ***** Error: 
+T1028 284:092.812   STM32: Connecting to CPU via connect under reset failed.
+T1028 284:143.400 - 702.662ms   returns 0x00000000
+T1028 284:151.434 JLINK_GetFirmwareString(...)
+T1028 284:151.534 - 0.114ms
+T1028 291:819.288 JLINK_Close()
+T1028 291:826.152 - 6.973ms
+T1028 291:826.269   
+T1028 291:826.277   Closed
