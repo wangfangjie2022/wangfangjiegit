@@ -1,0 +1,142 @@
+// MESSAGE RF_POWER PACKING
+
+#define ALINK_MSG_ID_RF_POWER 133
+
+typedef struct __alink_rf_power_t
+{
+ char rf_power[8]; /*< RF_POWER.*/
+} alink_rf_power_t;
+
+#define ALINK_MSG_ID_RF_POWER_LEN 8
+#define ALINK_MSG_ID_133_LEN 8
+
+#define ALINK_MSG_ID_RF_POWER_CRC 81
+#define ALINK_MSG_ID_133_CRC 81
+
+#define ALINK_MSG_RF_POWER_FIELD_RF_POWER_LEN 8
+
+#define ALINK_MESSAGE_INFO_RF_POWER { \
+	"RF_POWER", \
+	1, \
+	{  { "rf_power", NULL, ALINK_TYPE_CHAR, 8, 0, offsetof(alink_rf_power_t, rf_power) }, \
+         } \
+}
+
+
+/**
+ * @brief Pack a rf_power message
+ * @param dest_id ID of this system
+ * @param source_id ID of this component (e.g. 200 for IMU)
+ * @param msg The ALink message to compress the data into
+ *
+ * @param rf_power RF_POWER.
+ * @return length of the message in bytes (excluding serial stream start sign)
+ */
+static inline uint16_t alink_msg_rf_power_pack(uint8_t dest_id, uint8_t source_id, alink_message_head_t* msg,
+						       const char *rf_power)
+{
+#if ALINK_NEED_BYTE_SWAP || !ALINK_ALIGNED_FIELDS
+	char buf[ALINK_MSG_ID_RF_POWER_LEN];
+
+	_mav_put_char_array(buf, 0, rf_power, 8);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf,ALINK_MSG_ID_RF_POWER_LEN);
+#else
+	alink_rf_power_t packet;
+
+	mav_array_memcpy(packet.rf_power, rf_power, sizeof(char)*8);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet,ALINK_MSG_ID_RF_POWER_LEN);
+#endif
+
+	msg->msgid =ALINK_MSG_ID_RF_POWER;
+#if ALINK_CRC_EXTRA
+    return alink_finalize_message(msg, dest_id, source_id,ALINK_MSG_ID_RF_POWER_LEN,ALINK_MSG_ID_RF_POWER_CRC);
+#else
+    return alink_finalize_message(msg, dest_id, source_id,ALINK_MSG_ID_RF_POWER_LEN);
+#endif
+}
+
+/**
+ * @brief Pack a rf_power message on a channel
+ * @param dest_id ID of this system
+ * @param source_id ID of this component (e.g. 200 for IMU)
+ * @param chan The ALink channel this message will be sent over
+ * @param msg The ALink message to compress the data into
+ * @param rf_power RF_POWER.
+ * @return length of the message in bytes (excluding serial stream start sign)
+ */
+static inline uint16_t alink_msg_rf_power_pack_chan(uint8_t dest_id, uint8_t source_id, uint8_t chan,
+							   alink_message_head_t* msg,
+						           const char *rf_power)
+{
+#if ALINK_NEED_BYTE_SWAP || !ALINK_ALIGNED_FIELDS
+	char buf[ALINK_MSG_ID_RF_POWER_LEN];
+
+	_mav_put_char_array(buf, 0, rf_power, 8);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf,ALINK_MSG_ID_RF_POWER_LEN);
+#else
+	alink_rf_power_t packet;
+
+	mav_array_memcpy(packet.rf_power, rf_power, sizeof(char)*8);
+        memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet,ALINK_MSG_ID_RF_POWER_LEN);
+#endif
+
+	msg->msgid =ALINK_MSG_ID_RF_POWER;
+#if ALINK_CRC_EXTRA
+    return alink_finalize_message_chan(msg, dest_id, source_id, chan,ALINK_MSG_ID_RF_POWER_LEN,ALINK_MSG_ID_RF_POWER_CRC);
+#else
+    return alink_finalize_message_chan(msg, dest_id, source_id, chan,ALINK_MSG_ID_RF_POWER_LEN);
+#endif
+}
+/**
+ * @brief Encode a rf_power struct
+ *
+ * @param dest_id ID of this system
+ * @param source_id ID of this component (e.g. 200 for IMU)
+ * @param msg The ALink message to compress the data into
+ * @param rf_power C-struct to read the message contents from
+ */
+static inline uint16_t alink_msg_rf_power_encode(uint8_t dest_id, uint8_t source_id, alink_message_head_t* msg, const alink_rf_power_t* rf_power)
+{
+	return alink_msg_rf_power_pack(dest_id, source_id, msg, rf_power->rf_power);
+}
+
+/**
+ * @brief Encode a rf_power struct on a channel
+ *
+ * @param dest_id ID of this system
+ * @param source_id ID of this component (e.g. 200 for IMU)
+ * @param chan The ALink channel this message will be sent over
+ * @param msg The ALink message to compress the data into
+ * @param rf_power C-struct to read the message contents from
+ */
+static inline uint16_t alink_msg_rf_power_encode_chan(uint8_t dest_id, uint8_t source_id, uint8_t chan, alink_message_head_t* msg, const alink_rf_power_t* rf_power)
+{
+	return alink_msg_rf_power_pack_chan(dest_id, source_id, chan, msg, rf_power->rf_power);
+}
+// MESSAGE RF_POWER UNPACKING
+
+
+/**
+ * @brief Get field rf_power from rf_power message
+ *
+ * @return RF_POWER.
+ */
+static inline uint16_t alink_msg_rf_power_get_rf_power(const alink_message_head_t* msg, char *rf_power)
+{
+	return _MAV_RETURN_char_array(msg, rf_power, 8,  0);
+}
+
+/**
+ * @brief Decode a rf_power message into a struct
+ *
+ * @param msg The message to decode
+ * @param rf_power C-struct to decode the message contents into
+ */
+static inline void alink_msg_rf_power_decode(const alink_message_head_t* msg, alink_rf_power_t* rf_power)
+{
+#if ALINK_NEED_BYTE_SWAP
+	alink_msg_rf_power_get_rf_power(msg, rf_power->rf_power);
+#else
+	memcpy(rf_power, _MAV_PAYLOAD(msg), ALINK_MSG_ID_RF_POWER_LEN);
+#endif
+}
